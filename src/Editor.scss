@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 300px;
+}
+
+.mainwindow {
+  display: flex;
+  flex-direction: column;
+}
