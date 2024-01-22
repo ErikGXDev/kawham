@@ -1,6 +1,6 @@
-import "./Home.scss";
+import "@scss/Editor.scss";
 
-function Home() {
+function Editor() {
   return (
     <main className="container">
       <div className="sidebar">Sidebar 1</div>
@@ -13,4 +13,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Editor;
