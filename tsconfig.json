@@ -24,7 +24,8 @@
     "paths": {
       "@scss/*": ["scss/*"],
       "@components/*": ["components/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["src"],
