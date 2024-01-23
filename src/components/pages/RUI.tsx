@@ -11,6 +11,7 @@ import ForwardsIcon from "@components/rui/icons/Forwards";
 import Select from "@components/rui/Select";
 import Checkbox from "@components/rui/Checkbox";
 import Switch from "@components/rui/Switch";
+import Collapsible from "@components/rui/Collapsible";
 
 function RUIPage() {
   return (
@@ -89,6 +90,17 @@ function RUIPage() {
         <Text variant="subheader">Switch</Text>
 
         <Switch />
+      </div>
+
+      <div>
+        <Text variant="subheader">Collapsible</Text>
+
+        <Collapsible name={<Text variant="subheader">Expand</Text>}>
+          <Text variant="subheader">Foo</Text>
+          <Text variant="subheader">Bar</Text>
+          <Text variant="subheader">Fizz</Text>
+          <Text variant="subheader">Buzz</Text>
+        </Collapsible>
       </div>
 
       <div>
