@@ -25,7 +25,7 @@ export default function Home() {
                 className={cn(
                   "text-3xl hover:underline",
                   activePage == page
-                    ? "text-primary-default"
+                    ? "text-primary-higher"
                     : "text-foreground-default"
                 )}
               >

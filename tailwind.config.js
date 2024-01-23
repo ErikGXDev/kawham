@@ -16,7 +16,9 @@ export default {
           higher: "#FFFFFF",
         },
         primary: {
-          default: "#1578EB",
+          default: "#1A67BE",
+          higher: "#1A77E2",
+          highest: "#1883FF"
         },
         active: {
           default: "#F36C33",
