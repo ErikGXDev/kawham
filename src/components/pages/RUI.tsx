@@ -1,6 +1,13 @@
 import Text from "@components/rui/Text";
 import Input from "@components/rui/Input";
 import Button from "@components/rui/Button";
+import IconButton from "@components/rui/IconButton";
+
+import RunIcon from "@components/rui/icons/Run";
+import BugIcon from "@components/rui/icons/Bug";
+import BackwardsIcon from "@components/rui/icons/Backwards";
+import PauseIcon from "@components/rui/icons/Pause";
+import ForwardsIcon from "@components/rui/icons/Forwards";
 
 function RUIPage() {
   return (
@@ -41,6 +48,31 @@ function RUIPage() {
           <Button variant="filled">filled</Button>
           <Button variant="flat">flat</Button>
           <Button variant="outline">outline</Button>
+        </div>
+      </div>
+
+      <div>
+        <Text variant="subheader">IconButton</Text>
+        <div className="flex gap-4">
+          <IconButton>
+            <RunIcon />
+          </IconButton>
+
+          <IconButton>
+            <BugIcon />
+          </IconButton>
+
+          <IconButton>
+            <BackwardsIcon />
+          </IconButton>
+
+          <IconButton>
+            <PauseIcon />
+          </IconButton>
+
+          <IconButton>
+            <ForwardsIcon />
+          </IconButton>
         </div>
       </div>
     </main>
