@@ -8,6 +8,7 @@ import BugIcon from "@components/rui/icons/Bug";
 import BackwardsIcon from "@components/rui/icons/Backwards";
 import PauseIcon from "@components/rui/icons/Pause";
 import ForwardsIcon from "@components/rui/icons/Forwards";
+import Select from "@components/rui/Select";
 
 function RUIPage() {
   return (
@@ -74,6 +75,13 @@ function RUIPage() {
             <ForwardsIcon />
           </IconButton>
         </div>
+      </div>
+
+      <div>
+        <Text variant="subheader">Select</Text>
+        <Select options={["foo", "bar", "fizz", "buzz"]} />
+
+        <div className="h-64"></div>
       </div>
     </main>
   );
