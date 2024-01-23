@@ -9,6 +9,8 @@ import BackwardsIcon from "@components/rui/icons/Backwards";
 import PauseIcon from "@components/rui/icons/Pause";
 import ForwardsIcon from "@components/rui/icons/Forwards";
 import Select from "@components/rui/Select";
+import Checkbox from "@components/rui/Checkbox";
+import Switch from "@components/rui/Switch";
 
 function RUIPage() {
   return (
@@ -75,6 +77,18 @@ function RUIPage() {
             <ForwardsIcon />
           </IconButton>
         </div>
+      </div>
+
+      <div>
+        <Text variant="subheader">Checkbox</Text>
+
+        <Checkbox />
+      </div>
+
+      <div>
+        <Text variant="subheader">Switch</Text>
+
+        <Switch />
       </div>
 
       <div>
