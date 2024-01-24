@@ -72,10 +72,11 @@ export default function Select({ ...props }: SelectProps) {
               className={cn(
                 "w-64 px-4 py-2 outline-none bg-background-higher border-2 border-transparent",
                 "text-left",
-                "hover:border-primary-default hover:bg-background-highest",
 
-                i === selected &&
-                  "bg-primary-default hover:bg-primary-default hover:border-transparent",
+                i === selected
+                  ? "bg-primary-default hover:bg-primary-default hover:border-transparent"
+                  : "hover:border-primary-default active:bg-background-highest",
+
                 i === 0 && "rounded-t-xl",
                 i === props.options.length - 1 && "rounded-b-xl"
               )}
