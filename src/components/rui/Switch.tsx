@@ -1,7 +1,8 @@
 import { cn } from "@utils/cn";
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 
-export interface SwitchProps {
+export interface SwitchProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   align?: "right" | "left";
   checked?: boolean;
   onChecked?: (value: boolean) => any;
@@ -10,7 +11,7 @@ export interface SwitchProps {
   classCircle?: string;
 }
 
-export default function Switch({ ...props }: SwitchProps) {
+const Switch = forwardRef(({ ...props }: SwitchProps, ref) => {
   const [value, setValue] = useState(props.checked ?? false);
 
   return (
@@ -22,25 +23,28 @@ export default function Switch({ ...props }: SwitchProps) {
 
         value && "bg-primary-default border-primary-highest",
 
-        props.classButton
+        props.classButton,
       )}
       onClick={() => {
         setValue(!value);
         if (props.onChecked) props.onChecked(!value);
       }}
+      ref={ref as any}
     >
       <div
         className={cn(
           "transition-all",
-          props.align === "right" ? !value && "grow" : value && "grow"
+          props.align === "right" ? !value && "grow" : value && "grow",
         )}
       ></div>
       <div
         className={cn(
           "rounded-full bg-foreground-default w-8 h-8 transition-all",
-          props.classCircle
+          props.classCircle,
         )}
       ></div>
     </button>
   );
-}
+});
+
+export default Switch;
