@@ -5,7 +5,7 @@ export async function readJSONFile<T>(
   filename: string,
   fallback: any = {},
   options?: FsOptions
-) {
+): Promise<T> {
   if (!fs.exists(filename, options)) {
     writeJSONFile(filename, fallback, options);
     return fallback;
