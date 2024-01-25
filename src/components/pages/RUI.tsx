@@ -12,8 +12,12 @@ import Select from "@components/rui/Select";
 import Checkbox from "@components/rui/Checkbox";
 import Switch from "@components/rui/Switch";
 import Collapsible from "@components/rui/Collapsible";
+import Modal from "@components/rui/Modal";
+import { useState } from "react";
 
 function RUIPage() {
+  const [showModal, setShowModel] = useState(false);
+
   return (
     <main className="p-4 flex flex-col gap-4">
       <div>
@@ -106,9 +110,33 @@ function RUIPage() {
       <div>
         <Text variant="subheader">Select</Text>
         <Select options={["foo", "bar", "fizz", "buzz"]} />
-
-        <div className="h-64"></div>
       </div>
+
+      <div>
+        <Text variant="subheader">Modal w/ Button</Text>
+        <Button
+          variant="flat"
+          onClick={() => {
+            setShowModel(true);
+          }}
+        >
+          Open Modal
+        </Button>
+        <Modal
+          showModal={showModal}
+          setShowModel={setShowModel}
+          title="Create Project Modal"
+        >
+          <Text variant="subheader">Project Name</Text>
+          <Input defaultValue={"Bean Platformer"} />
+          <Text variant="subheader" className="mt-4">
+            Template
+          </Text>
+          <Select options={["Basic", "Platformer", "Bean"]} />
+        </Modal>
+      </div>
+
+      <div className="h-64"></div>
     </main>
   );
 }
