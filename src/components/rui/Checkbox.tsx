@@ -2,7 +2,8 @@ import { cn } from "@utils/cn";
 import { forwardRef, useState } from "react";
 import Checkmark from "./icons/Checkmark";
 
-export interface CheckboxProps extends React.HTMLProps<HTMLDivElement> {
+export interface CheckboxProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   checked?: boolean;
   classButton?: string;
   classCheckmark?: string;
