@@ -100,7 +100,7 @@ function RUIPage() {
       <div>
         <Text variant="subheader">Collapsible</Text>
 
-        <Collapsible name={<Text variant="subheader">Expand</Text>}>
+        <Collapsible header={<Text variant="subheader">Expand</Text>}>
           <Text variant="subheader">Foo</Text>
           <Text variant="subheader">Bar</Text>
           <Text variant="subheader">Fizz</Text>

@@ -1,26 +1,26 @@
 import { cn } from "@utils/cn";
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import ChevronRight from "./icons/ChevronRight";
 import ChevronDown from "./icons/ChevronDown";
 
-export interface CollapsibleProps {
-  name: React.ReactNode;
+export interface CollapsibleProps extends React.HTMLProps<HTMLButtonElement> {
+  header: React.ReactNode;
   isExpanded?: boolean;
-  children?: React.ReactNode;
   classNameHeader?: string;
   classNameContent?: string;
 }
 
-export default function Collapsible({ ...props }: CollapsibleProps) {
+const Collapsible = forwardRef(({ ...props }: CollapsibleProps, ref) => {
   const [isExpanded, setIsExpanded] = useState(props.isExpanded ?? false);
 
   return (
     <div>
-      <div
+      <button
         className={cn(
           "w-64 flex items-center cursor-pointer select-none",
-          props.classNameHeader
+          props.classNameHeader,
         )}
+        ref={ref as any}
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div className="w-8">
@@ -38,8 +38,8 @@ export default function Collapsible({ ...props }: CollapsibleProps) {
             />
           )}
         </div>
-        {props.name}
-      </div>
+        {props.header}
+      </button>
       {isExpanded && (
         <div className={cn("pl-8", props.classNameContent)}>
           {props.children}
@@ -47,4 +47,6 @@ export default function Collapsible({ ...props }: CollapsibleProps) {
       )}
     </div>
   );
-}
+});
+
+export default Collapsible;
