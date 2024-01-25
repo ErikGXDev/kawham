@@ -17,7 +17,7 @@ const Button = forwardRef(({ ...props }: ButtonProps, ref) => (
         ? "bg-background-higher hover:bg-background-highest hover:outline-primary-default hover:outline-1 active:outline-2"
         : props.variant === "outline"
         ? "outline-2 outline-primary-default text-primary-highest hover:bg-background-higher hover:outline-primary-default active:outline-primary-highest"
-        : "bg-primary-default hover:bg-primary-higher active:outline-2 active:outline-primary-highest"
+        : "bg-primary-default hover:bg-primary-higher active:outline-2 active:outline-primary-highest",
     )}
   />
 ));
