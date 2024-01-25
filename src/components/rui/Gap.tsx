@@ -6,9 +6,10 @@ export interface GapProps extends React.HTMLProps<HTMLDivElement> {
   direction?: "horizontal" | "vertical";
 }
 
-const Gap = ({ ...props }: GapProps) => (
+const Gap = forwardRef(({ ...props }: GapProps, ref) => (
   <span
     {...props}
+    ref={ref as any}
     className={cn(
       props.className,
       props.gapsize == "small"
@@ -24,6 +25,6 @@ const Gap = ({ ...props }: GapProps) => (
         : "py-4",
     )}
   ></span>
-);
+));
 
 export default Gap;
