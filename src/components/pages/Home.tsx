@@ -35,7 +35,7 @@ export default function Home() {
           </div>
         </Sidebar>
       </aside>
-      <div className="content p-16 flex gap-12">
+      <div className="w-full p-16 flex gap-12">
         {activePage == "Projects" && <Projects></Projects>}
         {activePage == "Learn" && <Learn></Learn>}
         {activePage == "Settings" && <Settings></Settings>}
