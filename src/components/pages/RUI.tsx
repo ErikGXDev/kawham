@@ -14,6 +14,7 @@ import Switch from "@components/rui/Switch";
 import Collapsible from "@components/rui/Collapsible";
 import Modal from "@components/rui/Modal";
 import { useState } from "react";
+import Gap from "@components/rui/Gap";
 
 function RUIPage() {
   const [showModal, setShowModel] = useState(false);
@@ -124,7 +125,7 @@ function RUIPage() {
         </Button>
         <Modal
           showModal={showModal}
-          setShowModel={setShowModel}
+          setShowModal={setShowModel}
           title="Create Project Modal"
         >
           <Text variant="subheader">Project Name</Text>
@@ -136,7 +137,63 @@ function RUIPage() {
         </Modal>
       </div>
 
-      <div className="h-64"></div>
+      <div>
+        <Text variant="subheader">Gap</Text>
+        <Text>direction="vertical"</Text>
+        <div className="flex gap-2">
+          <div className="flex flex-col">
+            <Text variant="text">gapsize="small"</Text>
+            <Gap gapsize="small" className="border border-red-600"></Gap>
+            <Text variant="text">gapsize="small"</Text>
+          </div>
+          <div className="flex flex-col">
+            <Text variant="text">gapsize="medium"</Text>
+            <Gap gapsize="medium" className="border border-red-600"></Gap>
+            <Text variant="text">gapsize="medium"</Text>
+          </div>
+          <div className="flex flex-col">
+            <Text variant="text">gapsize="large"</Text>
+            <Gap gapsize="large" className="border border-red-600"></Gap>
+            <Text variant="text">gapsize="large"</Text>
+          </div>
+        </div>
+        <Text>direction="horizontal"</Text>
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-row">
+            <Text variant="text" className="w-44 text-right">
+              gapsize="small"
+            </Text>
+            <Gap
+              gapsize="small"
+              direction="horizontal"
+              className="border border-red-600"
+            ></Gap>
+            <Text variant="text">gapsize="small"</Text>
+          </div>
+          <div className="flex flex-row">
+            <Text variant="text" className="w-44 text-right">
+              gapsize="medium"
+            </Text>
+            <Gap
+              gapsize="medium"
+              direction="horizontal"
+              className="border border-red-600"
+            ></Gap>
+            <Text variant="text">gapsize="medium"</Text>
+          </div>
+          <div className="flex flex-row">
+            <Text variant="text" className="w-44 text-right">
+              gapsize="large"
+            </Text>
+            <Gap
+              gapsize="large"
+              direction="horizontal"
+              className="border border-red-600"
+            ></Gap>
+            <Text variant="text">gapsize="large"</Text>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
