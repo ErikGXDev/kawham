@@ -2,7 +2,7 @@ import { cn } from "@utils/cn";
 import { forwardRef } from "react";
 
 export interface TextProps extends React.HTMLProps<HTMLHeadingElement> {
-  variant?: "text" | "small" | "header" | "subheader";
+  variant?: "text" | "small" | "largeheader" | "header" | "subheader";
   foreground?: "dimmer" | "normal" | "lighter";
 }
 
@@ -13,7 +13,9 @@ const Text = forwardRef(({ ...props }: TextProps, ref) => (
     className={cn(
       props.className,
       "block",
-      props.variant === "header"
+      props.variant === "largeheader"
+        ? "text-3xl leading-loose"
+        : props.variant === "header"
         ? "text-2xl leading-loose"
         : props.variant === "subheader"
         ? "text-xl leading-loose"
