@@ -1,9 +1,5 @@
 import { fs } from "@tauri-apps/api";
-import {
-  BaseDirectory,
-  BinaryFileContents,
-  FsOptions,
-} from "@tauri-apps/api/fs";
+import { BaseDirectory, FsOptions } from "@tauri-apps/api/fs";
 
 export async function readJSONFile<T>(
   filename: string,
