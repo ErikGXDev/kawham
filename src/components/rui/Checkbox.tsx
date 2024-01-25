@@ -22,7 +22,7 @@ export default function Checkbox({ ...props }: CheckboxProps) {
 
         value && "bg-primary-default border-primary-highest",
 
-        props.classButton
+        props.classButton,
       )}
       onClick={() => {
         setValue(!value);
