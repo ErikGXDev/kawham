@@ -1,8 +1,8 @@
 import { cn } from "@utils/cn";
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import Checkmark from "./icons/Checkmark";
 
-export interface CheckboxProps {
+export interface CheckboxProps extends React.HTMLProps<HTMLDivElement> {
   checked?: boolean;
   classButton?: string;
   classCheckmark?: string;
@@ -10,7 +10,7 @@ export interface CheckboxProps {
   onChecked?: (value: boolean) => any;
 }
 
-export default function Checkbox({ ...props }: CheckboxProps) {
+const Checkbox = forwardRef(({ ...props }: CheckboxProps, ref) => {
   const [value, setValue] = useState(props.checked ?? false);
 
   return (
@@ -28,8 +28,11 @@ export default function Checkbox({ ...props }: CheckboxProps) {
         setValue(!value);
         if (props.onChecked) props.onChecked(!value);
       }}
+      ref={ref as any}
     >
       {value && <Checkmark className={cn("w-6 h-6", props.classCheckmark)} />}
     </button>
   );
-}
+});
+
+export default Checkbox;
