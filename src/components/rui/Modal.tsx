@@ -19,7 +19,7 @@ const Modal = forwardRef(({ ...props }: ModalProps, ref) => (
       <div className="border-b-4 border-b-background-highest bg-background-higher flex justify-between py-2 px-4">
         <Text variant="text">{props.title}</Text>
       </div>
-      <div className="h-full p-4">{props.children}</div>
+      <div className="h-full p-4 flex flex-col">{props.children}</div>
     </div>
     <div
       className="bg-black/25 w-screen h-screen fixed left-0 top-0"
