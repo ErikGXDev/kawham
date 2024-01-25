@@ -13,9 +13,9 @@ const Modal = forwardRef(({ ...props }: ModalProps, ref) => (
   <div className={cn(props.showModal ? "block" : "hidden")} ref={ref as any}>
     <div
       {...props}
-      className="bg-background-default border-4 border-background-highest fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-xl overflow-hidden min-w-[400px]"
+      className="bg-background-default border-4 border-background-highest fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-xl min-w-[400px]"
     >
-      <div className="border-b-4 border-b-background-highest bg-background-higher flex justify-between py-2 px-4">
+      <div className="border-b-4 rounded-t-lg border-b-background-highest bg-background-higher flex justify-between py-2 px-4">
         <Text variant="text">{props.title}</Text>
       </div>
       <div className="h-full p-4 flex flex-col">{props.children}</div>
