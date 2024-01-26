@@ -13,6 +13,7 @@
     "allowlist": {
       "all": false,
       "fs": {
+        "scope": ["**/**"],
         "all": true
       },
       "shell": {
