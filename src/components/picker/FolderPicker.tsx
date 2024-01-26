@@ -1,5 +1,4 @@
 import Input, { InputProps } from "@components/rui/Input";
-import { cn } from "@utils/cn";
 import { open } from "@tauri-apps/api/dialog";
 import { forwardRef, useState } from "react";
 import { documentDir } from "@tauri-apps/api/path";
@@ -31,6 +30,7 @@ const FolderPicker = forwardRef(({ ...props }: GapProps, ref) => {
 
   return (
     <Input
+      {...props}
       onFocus={(e) => {
         e.preventDefault();
         browseFolder();
