@@ -1,17 +1,22 @@
-import { fs } from "@tauri-apps/api";
-import { FsOptions } from "@tauri-apps/api/fs";
+import {
+  FsOptions,
+  exists,
+  readTextFile,
+  writeTextFile,
+} from "@tauri-apps/api/fs";
 
 export async function readJSONFile<T>(
   filename: string,
   fallback: any = {},
   options?: FsOptions,
 ): Promise<T> {
-  if (!fs.exists(filename, options)) {
-    writeJSONFile(filename, fallback, options);
+  if (!(await exists(filename, options))) {
+    console.log("what now");
+    await writeJSONFile(filename, fallback, options);
     return fallback;
   }
 
-  let j = await fs.readTextFile(filename, options);
+  let j = await readTextFile(filename, options);
   let p: T = JSON.parse(j);
   return p;
 }
@@ -21,5 +26,5 @@ export async function writeJSONFile(
   content: any,
   options?: FsOptions,
 ) {
-  return fs.writeTextFile(filename, JSON.stringify(content, null, 2), options);
+  return writeTextFile(filename, JSON.stringify(content, null, 2), options);
 }
