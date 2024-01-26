@@ -1,14 +1,23 @@
+import Sidebar from "@components/sidebar/Sidebar";
 import "@scss/Editor.scss";
 
 export default function Editor() {
   return (
-    <main className="container">
-      <div className="sidebar">Sidebar 1</div>
-      <div className="mainwindow">
-        <div>Main Kaboom Game Window</div>
-        <div>File Explorer?</div>
+    <div className="h-screen flex overflow-hidden">
+      <Sidebar max={500} axis="x" className="overflow-hidden">
+        <h1>Testing</h1>
+      </Sidebar>
+      <div className="grow flex flex-col h-screen">
+        <Sidebar max={500} axis="y" className="overflow-hidden">
+          <h1>Stacked 1</h1>
+        </Sidebar>
+        <div className="grow overflow-hidden">
+          <h1>Stacked 2</h1>
+        </div>
       </div>
-      <div className="sidebar">Sidebar 2</div>
-    </main>
+      <Sidebar max={500} axis="x" separatorPosition="before" className="overflow-hidden" reverse>
+        <h1>Test</h1>
+      </Sidebar>
+    </div>
   );
 }
