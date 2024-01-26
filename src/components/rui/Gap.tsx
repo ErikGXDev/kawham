@@ -7,7 +7,7 @@ export interface GapProps extends React.HTMLProps<HTMLDivElement> {
 }
 
 const Gap = forwardRef(({ ...props }: GapProps, ref) => (
-  <span
+  <div
     {...props}
     ref={ref as any}
     className={cn(
@@ -24,7 +24,7 @@ const Gap = forwardRef(({ ...props }: GapProps, ref) => (
         ? "px-4"
         : "py-4",
     )}
-  ></span>
+  ></div>
 ));
 
 export default Gap;
