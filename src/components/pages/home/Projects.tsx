@@ -52,7 +52,7 @@ export default function Projects() {
             </div>
           )}
           {projects.length == 0 && (
-            <div className="w-full h-full flex items-center justify-center">
+            <div className="w-full h-full flex items-center justify-center text-center p-4">
               <Text>Click the "New +" button to create a new project.</Text>
             </div>
           )}
