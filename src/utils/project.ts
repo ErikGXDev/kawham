@@ -2,14 +2,14 @@ import { BaseDirectory, exists } from "@tauri-apps/api/fs";
 import { readJSONFile, writeJSONFile } from "./fs";
 import { kaboomVersion, kawhamVersion } from "./global";
 
-interface Project {
+export interface Project {
   name: string;
   path: string;
   kawhamVersion: string;
   kaboomVersion: string;
 }
 
-type ProjectsFile = Project[];
+export type ProjectsFile = Project[];
 
 // TODO: Verify Project File Structure
 export async function getProjects() {
