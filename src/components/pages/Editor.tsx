@@ -1,3 +1,4 @@
+import GameObjectList from "@components/editor/GameObjectList";
 import Sidebar from "@components/sidebar/Sidebar";
 import "@scss/Editor.scss";
 
@@ -5,7 +6,7 @@ export default function Editor() {
   return (
     <div className="h-screen flex overflow-hidden">
       <Sidebar max={500} axis="x" className="overflow-hidden">
-        <h1>Testing</h1>
+        <GameObjectList />
       </Sidebar>
       <div className="grow flex flex-col h-screen">
         <Sidebar max={500} axis="y" className="overflow-hidden">

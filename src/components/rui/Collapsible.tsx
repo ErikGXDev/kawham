@@ -8,6 +8,9 @@ export interface CollapsibleProps extends React.HTMLProps<HTMLButtonElement> {
   isExpanded?: boolean;
   classNameHeader?: string;
   classNameContent?: string;
+
+  iconExpanded?: React.ReactNode;
+  iconCollapsed?: React.ReactNode;
 }
 
 const Collapsible = forwardRef(({ ...props }: CollapsibleProps, ref) => {
@@ -22,21 +25,24 @@ const Collapsible = forwardRef(({ ...props }: CollapsibleProps, ref) => {
         )}
         ref={ref as any}
         onClick={() => setIsExpanded(!isExpanded)}
+        style={props.style}
       >
         <div className="w-8">
-          {isExpanded ? (
-            <ChevronDown
-              width={16}
-              height={16}
-              className="pointer-events-none"
-            />
-          ) : (
-            <ChevronRight
-              width={16}
-              height={16}
-              className="pointer-events-none"
-            />
-          )}
+          {isExpanded
+            ? props.iconExpanded ?? (
+                <ChevronDown
+                  width={16}
+                  height={16}
+                  className="pointer-events-none"
+                />
+              )
+            : props.iconCollapsed ?? (
+                <ChevronRight
+                  width={16}
+                  height={16}
+                  className="pointer-events-none"
+                />
+              )}
         </div>
         {props.header}
       </button>
