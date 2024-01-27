@@ -10,10 +10,19 @@ interface GameObject {
 }
 
 function getChildCount(object: GameObject): number {
-  return object.children.length > 0
-    ? object.children.map(getChildCount).reduce((l, r) => l + r, 0) +
-        object.children.length
-    : 0;
+  if (object.children.length === 0) return 0;
+
+  let childCount = 0;
+  const queue: GameObject[] = [object];
+
+  while (queue.length > 0) {
+    const top = queue.pop()!;
+
+    childCount += top.children.length;
+    for (const child of top.children) queue.push(child);
+  }
+
+  return childCount;
 }
 
 function GameObjectNode({
@@ -33,7 +42,7 @@ function GameObjectNode({
     return (
       <Collapsible
         header={<Text>{object.name}</Text>}
-        classNameContent="pl-0"
+        classNameContent="!pl-0"
         classNameHeader={cn(
           "p-2 w-full",
           globalIndex % 2 === 1 && "bg-background-higher",
