@@ -9,7 +9,7 @@ export default function Editor() {
         <GameObjectList />
       </Sidebar>
       <div className="grow flex flex-col h-screen">
-        <Sidebar max={500} axis="y" className="overflow-hidden">
+        <Sidebar max={900} axis="y" className="overflow-hidden">
           <h1>Stacked 1</h1>
         </Sidebar>
         <div className="grow overflow-hidden">

@@ -25,6 +25,10 @@ function getChildCount(object: GameObject): number {
   return childCount;
 }
 
+const ICON_CENTER_OFFSET = 7;
+const PADDING_PER_LEVEL = 30;
+const PADDING_INITIAL = 16;
+
 function GameObjectNode({
   object,
   index,
@@ -36,15 +40,30 @@ function GameObjectNode({
   level: number;
   globalIndex: number;
 }) {
-  const paddingLeft = level * 30 + 16;
+  const paddingLeft = level * PADDING_PER_LEVEL + PADDING_INITIAL;
+  const nestingMarkers =
+    level !== 0 &&
+    Array.from(new Array(level), (_, i) => (
+      <div
+        style={{
+          left: i * PADDING_PER_LEVEL + PADDING_INITIAL + ICON_CENTER_OFFSET,
+        }}
+        className="absolute top-0 h-full w-0.5 bg-background-highest"
+      ></div>
+    ));
 
   if (object.children.length > 0)
     return (
       <Collapsible
-        header={<Text>{object.name}</Text>}
+        header={
+          <>
+            {nestingMarkers}
+            <Text>{object.name}</Text>
+          </>
+        }
         classNameContent="!pl-0"
         classNameHeader={cn(
-          "p-2 w-full",
+          "p-2 w-full relative",
           globalIndex % 2 === 1 && "bg-background-higher",
           index !== 0 && "border-t-2 border-background-highest",
         )}
@@ -66,7 +85,6 @@ function GameObjectNode({
       >
         <div className="w-full border-t-2 border-background-highest"></div>
         {object.children.map((child, i) => (
-          /* Child inherits background color */
           <GameObjectNode
             object={child}
             index={i}
@@ -81,11 +99,12 @@ function GameObjectNode({
     <div
       style={{ paddingLeft }}
       className={cn(
-        "p-2",
+        "p-2 relative",
         globalIndex % 2 === 1 && "bg-background-higher",
         index !== 0 && "border-t-2 border-background-highest",
       )}
     >
+      {nestingMarkers}
       <Text>{object.name}</Text>
     </div>
   );
@@ -122,7 +141,22 @@ export default function GameObjectList() {
           children: [
             {
               name: "Test",
-              children: [],
+              children: [
+                {
+                  name: "Even",
+                  children: [
+                    {
+                      name: "More",
+                      children: [
+                        {
+                          name: "Nesting",
+                          children: [],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },
