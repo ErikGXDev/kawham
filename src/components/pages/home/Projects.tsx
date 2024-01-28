@@ -6,6 +6,7 @@ import Modal from "@components/rui/Modal";
 import Text from "@components/rui/Text";
 import { ProjectsFile, createProject, getProjects } from "@utils/project";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Projects() {
   const [showModal, setShowModal] = useState(false);
@@ -45,8 +46,11 @@ export default function Projects() {
             <div className="[&>*:nth-child(odd)]:bg-background-higher rounded-md">
               {projects.map((project) => (
                 <li className="p-4 px-6 cursor-pointer hover:brightness-105">
-                  <Text variant="subheader">{project.name}</Text>
-                  <Text foreground="dimmer">{project.path}</Text>
+                  {/* Temporary link to editor so I don't have to open devtools everytime */}
+                  <Link to="/editor">
+                    <Text variant="subheader">{project.name}</Text>
+                    <Text foreground="dimmer">{project.path}</Text>
+                  </Link>
                 </li>
               ))}
             </div>
