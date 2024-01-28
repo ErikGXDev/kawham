@@ -17,16 +17,21 @@ export default function Editor() {
 
   if (projectPath === null)
     return (
-      <div className="h-screen flex overflow-hidden items-center justify-center">
-        <Text variant="largeheader" className="animate-bounce">
-          Loading
+      <div className="h-screen flex overflow-hidden items-center justify-center p-16">
+        <Text variant="header">
+          Failed to launch editor: no path was supplied.
         </Text>
       </div>
     );
 
   return (
     <div className="h-screen flex overflow-hidden">
-      <Sidebar max={500} axis="x" className="overflow-hidden">
+      <Sidebar
+        max={500}
+        initial={200}
+        axis="x"
+        className="overflow-hidden"
+      >
         <GameObjectList />
       </Sidebar>
       <div className="grow flex flex-col h-screen">
@@ -39,6 +44,7 @@ export default function Editor() {
       </div>
       <Sidebar
         max={500}
+        initial={200}
         axis="x"
         separatorPosition="before"
         className="overflow-hidden"
