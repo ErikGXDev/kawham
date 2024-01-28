@@ -46,8 +46,7 @@ export default function Projects() {
             <div className="[&>*:nth-child(odd)]:bg-background-higher rounded-md">
               {projects.map((project) => (
                 <li className="p-4 px-6 cursor-pointer hover:brightness-105">
-                  {/* Temporary link to editor so I don't have to open devtools everytime */}
-                  <Link to="/editor">
+                  <Link to={`/editor?path=${project.path}`}>
                     <Text variant="subheader">{project.name}</Text>
                     <Text foreground="dimmer">{project.path}</Text>
                   </Link>

@@ -16,7 +16,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-resizable-layout": "^0.7.2",
-    "react-router-dom": "^6.21.3"
+    "react-router-dom": "^6.21.3",
+    "tauri-plugin-fs-watch-api": "github:tauri-apps/tauri-plugin-fs-watch#v1"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.8",

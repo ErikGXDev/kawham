@@ -18,7 +18,7 @@
       },
       "shell": {
         "all": false,
-        "open": true
+        "open": "^((mailto:\\w+)|(tel:\\w+)|(https?://\\w+)|(vscode://file/)).+"
       },
       "path": {
         "all": true
